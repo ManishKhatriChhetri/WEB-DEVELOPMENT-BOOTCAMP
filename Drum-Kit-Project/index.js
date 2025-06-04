@@ -3,8 +3,20 @@ for (var i=0; i<noOfDrumBottons;i++){
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
         
         var buttonInnerHTML = this.innerHTML;
+        makeSound(buttonInnerHTML);
+        buttonAnimation(buttonInnerHTML);
+    }); 
+}
 
-        switch (buttonInnerHTML) {
+document.addEventListener("keydown", function (event) {
+        
+        keyPressed=event.key;
+        makeSound(keyPressed);
+        buttonAnimation(keyPressed);
+    });
+
+function makeSound(key) {
+    switch (key) {
             case "w":
                 var audio = new Audio("sounds/tom-1.mp3");
                 audio.play();
@@ -41,13 +53,23 @@ for (var i=0; i<noOfDrumBottons;i++){
                 break;
 
             default:
-                console.log("buttonInnerHTML")
+                console.log("Please press the required key for the drums")
         
         }
-    });
 }
 
-// var audio = new Audio("sounds/tom-1.mp3");
-// audio.play();
-//<button class="w drum">w</button>
+function buttonAnimation (currentKey){
+    var activeButton = document.querySelector("."+currentKey);
+    
+    activeButton.classList.add("pressed");
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    }, 200);   
+}
+
+
+
+
+
+
 
