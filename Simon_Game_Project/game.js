@@ -46,7 +46,7 @@ function checkAnswer (currentLevel) {
         setTimeout(function(){
             $("body").removeClass("game-over");
         }, 200),
-        $("#level-title").text("Game Over, Press Any Key to Restart");
+        $("#level-title").text("Game Over, For Laptop/Desktop, Press Any Key to Start. For Mobile device, Touch Anywhere, except buttons to Start");
 
         startOver();
     }
