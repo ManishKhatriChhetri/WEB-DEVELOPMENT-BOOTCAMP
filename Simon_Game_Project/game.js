@@ -7,7 +7,7 @@ var userClickedPattern= [];
 var level = 0;
 var started = false;
 
-$(document).keydown(
+$(document).on("keydown touchstart", 
     function () {
         if (!started) {
             $("#level-title").text("Level "+level);
